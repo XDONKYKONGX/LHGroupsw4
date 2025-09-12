@@ -120,6 +120,66 @@ nav ul li a:hover {
     color: #ff9900;
 }
 
+/* Dropdown Menu Styles */
+nav ul li.dropdown {
+    position: relative;
+}
+
+nav ul li.dropdown > a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+nav ul li.dropdown > a .fas {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+nav ul li.dropdown:hover > a .fas {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    padding: 10px 0;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+nav ul li.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu li a {
+    color: #333;
+    padding: 10px 20px;
+    display: block;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f5f5f5;
+    color: #ff9900;
+}
+
 /* Header Social Media Icons */
 .header-social {
     display: flex;
@@ -218,22 +278,12 @@ nav ul li a:hover {
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
+    padding: 25px;
 }
 
 .service-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.service-img {
-    height: 200px;
-    background-color: #ddd;
-    background-position: center;
-    background-size: cover;
-}
-
-.service-content {
-    padding: 25px;
 }
 
 .service-content h3 {
@@ -245,6 +295,75 @@ nav ul li a:hover {
 .service-content p {
     color: #666;
     margin-bottom: 20px;
+}
+
+/* Image Carousel */
+.carousel-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.carousel-control {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: background-color 0.3s;
+}
+
+.carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-indicator.active {
+    background-color: #ff9900;
 }
 
 /* About Section */
@@ -399,7 +518,7 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-    background-color: #0f2a46;
+    background-color: #1a3e63;
     color: white;
     padding: 60px 0 30px;
 }
@@ -481,6 +600,7 @@ footer {
     .header-content {
         flex-direction: column;
         text-align: center;
+        font-size: 20px;
     }
     
     .logo {
@@ -536,5 +656,38 @@ footer {
     .footer-social a {
         width: 36px;
         height: 36px;
+    }
+}
+
+/* Mobile responsiveness for dropdowns */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+        box-shadow: none;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin-left: 15px;
+    }
+    
+    nav ul li.dropdown:hover .dropdown-menu,
+    nav ul li.dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-menu li a {
+        color: white;
+        padding: 8px 15px;
+    }
+    
+    nav ul li.dropdown > a .fas {
+        transform: none;
+    }
+    
+    nav ul li.dropdown:hover > a .fas,
+    nav ul li.dropdown.active > a .fas {
+        transform: rotate(180deg);
     }
 }
