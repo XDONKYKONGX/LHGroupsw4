@@ -13,15 +13,41 @@
     <!-- Header & Navigation -->
     <header>
         <div class="container header-content">
-                <div class="contact-info">
-                    <span><i class="fas fa-phone"></i> <a href="tel:07833906526">07833 906 526</a></span>
-                    <span><i class="fas fa-envelope"></i> <a href="mailto:info@lhgroupsw.com">info@lhgroupsw.com</a></span>
-                </div>
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> <a href="tel:07833906526">07833 906 526</a></span>
+            </div>
+            
+            <div class="mobile-nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Projects</a></li>
+                    <li class="dropdown">
+                        <a href="#">Divisions <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">General Building</a></li>
+                            <li><a href="#">Property Maintenance</a></li>
+                            <li><a href="#">Bespoke Joinery</a></li>
+                            <li><a href="#">Carpentry</a></li>
+                            <li><a href="#">GRP Specialists</a></li>
+                            <li><a href="#">Pattern Making Systems</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Projects <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Torquay</a></li>
+                            <li><a href="#">Paignton</a></li>
+                            <li><a href="#">Brixham</a></li>
+                            <li><a href="#">Salcombe</a></li>
+                            <li><a href="#">Newton Abbot</a></li>
+                            <li><a href="#">Teignmouth</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -35,14 +61,15 @@
         </div>
     </header>
 
+    <!-- Rest of your HTML remains the same -->
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-                        <div class="logo">
+            <div class="logo">
                 <div class="logo-circle">LH</div>
                 <div class="logo-text">
-                    <h1>LH Group SW Ltd</h1>
-                    <span>Building & Maintenance Contractors</span>
+                    <h1>Group SW Ltd</h1>
                 </div>
             </div>
         </div>
@@ -52,55 +79,66 @@
     <section class="services">
         <div class="container">
             <div class="section-title">
-                <h2>Our Services</h2>
-                <p>We offer a comprehensive range of building and maintenance services to meet all your property needs</p>
+                <h2>Our Divisions</h2>
             </div>
+            
+            <!-- Image Carousel -->
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-item" style="background-image: url('Pictures/General%20Building.webp');"></div>
+                    <div class="carousel-item" style="background-image: url('Pictures/Extension.jpg');"></div>
+                    <div class="carousel-item" style="background-image: url('Pictures/Loft%20Conversion.webp');"></div>
+                    <div class="carousel-item" style="background-image: url('Pictures/New%20Build.jpg');"></div>
+                    <div class="carousel-item" style="background-image: url('Pictures/GRP%20Roofing.webp');"></div>
+                    <div class="carousel-item" style="background-image: url('Pictures/Property%20Maintenance.jpg');"></div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-control prev" aria-label="Previous image">&#10094;</button>
+                    <button class="carousel-control next" aria-label="Next image">&#10095;</button>
+                </div>
+                <div class="carousel-indicators"></div>
+            </div>
+            
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('Pictures/General\ Building.webp');"></div>
                     <div class="service-content">
-                        <h3>General Building</h3>
-                        <p>Complete building services including repairs, maintenance, and refurbishment for residential and commercial properties.</p>
+                        <h3>General Builder</h3>
+                        <p>Crafting durable, functional, and beautiful structures tailored to your unique vision and needs.</p>
                         <a href="#" class="btn">Learn More</a>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('Pictures/Extension.jpg');"></div>
-                    <div class="service-content">
-                        <h3>Extensions & Renovations</h3>
-                        <p>Professional home extensions and renovation services to create more space and add value to your property.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('Pictures/Loft\ Conversion.webp');"></div>
-                    <div class="service-content">
-                        <h3>Loft Conversions</h3>
-                        <p>Transform your unused loft space into a beautiful, functional room with our expert conversion services.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('Pictures/New\ Build.jpg');"></div>
-                    <div class="service-content">
-                        <h3>New Builds</h3>
-                        <p>From concept to completion, we manage the entire process of constructing new residential and commercial properties.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('Pictures/GRP\ Roofing.webp');"></div>
-                    <div class="service-content">
-                        <h3>GRP Roofing</h3>
-                        <p>Professional GRP (Glass Reinforced Plastic) roofing solutions that provide durable, weatherproof protection for your property.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('Pictures/Property\ Maintenance.jpg')"></div>
                     <div class="service-content">
                         <h3>Property Maintenance</h3>
-                        <p>Regular maintenance services to keep your property in optimal condition and prevent costly repairs in the future.</p>
+                        <p>Professional property maintenance keeps your investment safe, functional, and looking its absolute best.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Bespoke Joinery</h3>
+                        <p>Transforming spaces with exquisite, custom-crafted woodwork designed uniquely for you and your home.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Carpentry</h3>
+                        <p>Expert carpentry services delivering precision craftsmanship and durable solutions for your home.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>GRP Specialists</h3>
+                        <p>Specialists in crafting durable, seamless GRP solutions for roofing, cladding, and architectural features.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Pattern Making Systems</h3>
+                        <p>Creating precise, repeatable templates and molds for flawless manufacturing and construction components.</p>
                         <a href="#" class="btn">Learn More</a>
                     </div>
                 </div>
@@ -114,14 +152,14 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>About LH Group SW Ltd</h2>
-                    <p>LH Group SW Ltd has been providing exceptional building and maintenance services across the South West for over 15 years. Founded by Lee Hodges, our company has built a reputation for quality workmanship, reliability, and excellent customer service.</p>
-                    <p>We take pride in our attention to detail and commitment to delivering projects on time and within budget. Whether you need a small repair or a major construction project, you can trust our experienced team to deliver outstanding results.</p>
-                    <p>All our work is fully insured, and we comply with all relevant building regulations and safety standards.</p>
+                    <p>The Director of LH Group SW Ltd has been providing exceptional services to homeowners, business and landlords across the South West for over 34 years. Founded by Lee Hodges, our company has built a reputation for quality workmanship, reliability, and excellent customer service.</p>
+                    <p>We take pride in our attention to detail and commitment to delivering projects on time and within budget. </p>
+                    <p>All our work is fully insured, and we comply with all relevant regulations and safety standards.</p>
                     <a href="#" class="btn">Learn More About Us</a>
                 </div>
                 <div class="about-image">
                     <div class="experience-badge">
-                        <span class="years">15+</span>
+                        <span class="years">34+</span>
                         <span class="text">Years Experience</span>
                     </div>
                 </div>
@@ -182,7 +220,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>LH Group SW Ltd</h3>
-                    <p>Professional building and maintenance contractors serving the South West with quality and reliability since 2008.</p>
+                    <p>Lee Hodges and his team have been serving the South West with quality and reliability since 1991.</p>
                     <div class="footer-social">
                         <a href="https://www.facebook.com/profile.php?id=61575698164334" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://x.com/WebsitesPa62035" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -215,5 +253,102 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.mobile-nav-toggle');
+            const nav = document.querySelector('nav');
+            
+            navToggle.addEventListener('click', function() {
+                navToggle.classList.toggle('active');
+                nav.classList.toggle('active');
+                document.body.classList.toggle('nav-open');
+            });
+            
+            // Close menu when clicking on a link
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navToggle.classList.remove('active');
+                    nav.classList.remove('active');
+                    document.body.classList.remove('nav-open');
+                });
+            });
+            
+            // Carousel functionality
+            const carousel = document.querySelector('.carousel');
+            const items = document.querySelectorAll('.carousel-item');
+            const prevBtn = document.querySelector('.carousel-control.prev');
+            const nextBtn = document.querySelector('.carousel-control.next');
+            const indicatorsContainer = document.querySelector('.carousel-indicators');
+            
+            let currentIndex = 0;
+            const totalItems = items.length;
+            
+            // Create indicators
+            for (let i = 0; i < totalItems; i++) {
+                const indicator = document.createElement('div');
+                indicator.classList.add('carousel-indicator');
+                if (i === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', () => {
+                    goToSlide(i);
+                });
+                indicatorsContainer.appendChild(indicator);
+            }
+            
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            
+            // Function to go to a specific slide
+            function goToSlide(index) {
+                currentIndex = index;
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('active', i === currentIndex);
+                });
+            }
+            
+            // Next slide
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalItems;
+                goToSlide(currentIndex);
+            });
+            
+            // Previous slide
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                goToSlide(currentIndex);
+            });
+            
+            // Auto-play the carousel
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalItems;
+                goToSlide(currentIndex);
+            }, 5000);
+            
+            // Mobile dropdown toggle
+            const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
+            
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const dropdown = this.parentElement;
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking elsewhere
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768 && !e.target.closest('nav ul li.dropdown')) {
+                    document.querySelectorAll('nav ul li.dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
