@@ -17,11 +17,12 @@
                 <span><i class="fas fa-phone"></i> <a href="tel:07833906526">07833 906 526</a></span>
             </div>
             
-            <div class="mobile-nav-toggle">
+            <!-- Hamburger menu toggle -->
+            <button class="menu-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
             
             <nav>
                 <ul>
@@ -31,7 +32,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="#">General Building</a></li>
                             <li><a href="#">Property Maintenance</a></li>
-                            <li><a href="#">Bespoke Joinery</a></li>
+                            <li><a href="bespoke-joinery.html">Bespoke Joinery</a></li>
                             <li><a href="#">Carpentry</a></li>
                             <li><a href="#">GRP Specialists</a></li>
                             <li><a href="#">Pattern Making Systems</a></li>
@@ -52,6 +53,7 @@
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
+            
             <div class="header-social">
                 <a href="https://www.facebook.com/profile.php?id=61575698164334" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://x.com/WebsitesPa62035" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -61,7 +63,8 @@
         </div>
     </header>
 
-    <!-- Rest of your HTML remains the same -->
+    <!-- Mobile overlay -->
+    <div class="mobile-overlay"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -254,24 +257,55 @@
         </div>
     </footer>
     <script>
-        // Mobile navigation toggle
+        // Mobile navigation functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const navToggle = document.querySelector('.mobile-nav-toggle');
+            const menuToggle = document.querySelector('.menu-toggle');
             const nav = document.querySelector('nav');
+            const overlay = document.querySelector('.mobile-overlay');
+            const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
             
-            navToggle.addEventListener('click', function() {
-                navToggle.classList.toggle('active');
+            // Toggle mobile menu
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
                 nav.classList.toggle('active');
-                document.body.classList.toggle('nav-open');
+                overlay.classList.toggle('active');
+            });
+            
+            // Close menu when clicking overlay
+            overlay.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                this.classList.remove('active');
+                
+                // Also close any open dropdowns
+                document.querySelectorAll('nav ul li.dropdown').forEach(item => {
+                    item.classList.remove('active');
+                });
+            });
+            
+            // Handle dropdown toggles on mobile
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const dropdown = this.parentElement;
+                        dropdown.classList.toggle('active');
+                    }
+                });
             });
             
             // Close menu when clicking on a link
-            const navLinks = document.querySelectorAll('nav a');
+            const navLinks = document.querySelectorAll('nav a:not(.dropdown > a)');
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
-                    navToggle.classList.remove('active');
+                    menuToggle.classList.remove('active');
                     nav.classList.remove('active');
-                    document.body.classList.remove('nav-open');
+                    overlay.classList.remove('active');
+                    
+                    // Also close any open dropdowns
+                    document.querySelectorAll('nav ul li.dropdown').forEach(item => {
+                        item.classList.remove('active');
+                    });
                 });
             });
             
@@ -326,28 +360,6 @@
                 currentIndex = (currentIndex + 1) % totalItems;
                 goToSlide(currentIndex);
             }, 5000);
-            
-            // Mobile dropdown toggle
-            const dropdownToggles = document.querySelectorAll('nav ul li.dropdown > a');
-            
-            dropdownToggles.forEach(toggle => {
-                toggle.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        const dropdown = this.parentElement;
-                        dropdown.classList.toggle('active');
-                    }
-                });
-            });
-            
-            // Close dropdowns when clicking elsewhere
-            document.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768 && !e.target.closest('nav ul li.dropdown')) {
-                    document.querySelectorAll('nav ul li.dropdown').forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                    });
-                }
-            });
         });
     </script>
 </body>
