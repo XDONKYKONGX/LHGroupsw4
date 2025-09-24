@@ -301,36 +301,6 @@ nav ul li.dropdown:hover .dropdown-menu {
     margin: 0 auto;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.service-card {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    padding: 25px;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.service-content h3 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    color: #1a3e63;
-}
-
-.service-content p {
-    color: #666;
-    margin-bottom: 20px;
-}
-
 /* Image Carousel */
 .carousel-container {
     position: relative;
@@ -398,6 +368,70 @@ nav ul li.dropdown:hover .dropdown-menu {
 
 .carousel-indicator.active {
     background-color: #ff9900;
+}
+
+/* New Divisions Layout */
+.divisions-container {
+    margin-top: 60px;
+}
+
+.division-item {
+    margin-bottom: 60px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.division-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 300px;
+}
+
+.division-content.reverse {
+    flex-direction: row-reverse;
+}
+
+.division-text {
+    flex: 1;
+    min-width: 300px;
+    padding: 40px;
+}
+
+.division-text h3 {
+    font-size: 1.8rem;
+    color: #1a3e63;
+    margin-bottom: 20px;
+}
+
+.division-text p {
+    margin-bottom: 25px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.division-image {
+    flex: 1;
+    min-width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.division-img-container {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.division-item:hover .division-img-container {
+    transform: scale(1.05);
 }
 
 /* About Section */
@@ -799,6 +833,19 @@ footer {
     .contact-info {
         display: none;
     }
+    
+    /* Division responsive styles */
+    .division-content, .division-content.reverse {
+        flex-direction: column;
+    }
+    
+    .division-text, .division-image {
+        min-width: 100%;
+    }
+    
+    .division-image {
+        height: 250px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -835,6 +882,10 @@ footer {
     
     .section-title h2 {
         font-size: 1.8rem;
+    }
+    
+    .division-text {
+        padding: 25px;
     }
 }
 
