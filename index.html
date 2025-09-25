@@ -13,8 +13,12 @@
     <!-- Header & Navigation -->
     <header>
         <div class="container header-content">
-            <div class="contact-info">
-                <span><i class="fas fa-phone"></i> <a href="tel:07833906526">07833 906 526</a></span>
+            <!-- Logo moved to header -->
+            <div class="header-logo">
+                <div class="logo-circle">LH</div>
+                <div class="logo-text">
+                    <h1>Group SW Ltd</h1>
+                </div>
             </div>
             
             <!-- Hamburger menu toggle -->
@@ -66,54 +70,36 @@
     <!-- Mobile overlay -->
     <div class="mobile-overlay"></div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="logo">
-                <div class="logo-circle">LH</div>
-                <div class="logo-text">
-                    <h1>Group SW Ltd</h1>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Services Section -->
     <section class="services">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Divisions</h2>
-            </div>
             
-            <!-- Image Carousel -->
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="carousel-item" style="background-image: url('Pictures/General%20Building.webp');"></div>
-                    <div class="carousel-item" style="background-image: url('Pictures/Extension.jpg');"></div>
-                    <div class="carousel-item" style="background-image: url('Pictures/Loft%20Conversion.webp');"></div>
-                    <div class="carousel-item" style="background-image: url('Pictures/New%20Build.jpg');"></div>
-                    <div class="carousel-item" style="background-image: url('Pictures/GRP%20Roofing.webp');"></div>
-                    <div class="carousel-item" style="background-image: url('Pictures/Property%20Maintenance.jpg');"></div>
-                </div>
-                <div class="carousel-controls">
-                    <button class="carousel-control prev" aria-label="Previous image">&#10094;</button>
-                    <button class="carousel-control next" aria-label="Next image">&#10095;</button>
-                </div>
-                <div class="carousel-indicators"></div>
+            <!-- Video Section (Replaces Carousel) -->
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="Pictures/Lee-Pictures/Drone-footage/Drone Footage.mp4" type="video/mp4">
+                    Your browser does not support this video tag.
+                </video>
             </div>
+
+            <!-- Our Divisions Title - MOVED BELOW VIDEO -->
+        <div class="section-title">
+            <h2>Our Divisions</h2>
+        </div>
             
             <!-- Updated Divisions Layout -->
             <div class="divisions-container">
+
                 <!-- General Builder -->
                 <div class="division-item">
                     <div class="division-content">
                         <div class="division-text">
-                            <h3>General Builder</h3>
+                            <h3>Builder</h3>
                             <p>Crafting durable, functional, and beautiful structures tailored to your unique vision and needs. Our experienced team handles projects of all sizes with precision and expertise.</p>
                             <a href="building.html" class="btn">Learn More</a>
                         </div>
                         <div class="division-image">
-                            <div class="division-img-container" style="background-image: url('pictures/General\ Builder.jpg');">
+                            <div class="division-img-container" style="background-image: url('Pictures/Lee-Pictures/New-build/New-build-9.jpg');">
                             </div>
                         </div>
                     </div>
@@ -128,7 +114,7 @@
                             <a href="property-maintenance.html" class="btn">Learn More</a>
                         </div>
                         <div class="division-image">
-                            <div class="division-img-container" style="background-image: url('Pictures/Property\ Maintenance.jpg');">
+                            <div class="division-img-container" style="background-image: url('Pictures/Lee-Pictures/Balistrade/Balistrade-2.jpg');">
                             </div>
                         </div>
                     </div>
@@ -143,7 +129,7 @@
                             <a href="bespoke-joinery.html" class="btn">Learn More</a>
                         </div>
                         <div class="division-image">
-                            <div class="division-img-container" style="background-image: url('Pictures/Custom\ Staircases.jpg');">
+                            <div class="division-img-container" style="background-image: url('Pictures/Lee-Pictures/Carpentry/Carpentry-3.jpg');">
                             </div>
                         </div>
                     </div>
@@ -158,7 +144,7 @@
                             <a href="carpentry.html" class="btn">Learn More</a>
                         </div>
                         <div class="division-image">
-                            <div class="division-img-container" style="background-image: url('Pictures/carpentry.jpeg');">
+                            <div class="division-img-container" style="background-image: url('Pictures/Lee-Pictures/Decking/Decking-2.jpg');">
                             </div>
                         </div>
                     </div>
@@ -173,7 +159,7 @@
                             <a href="grp-specialists.html" class="btn">Learn More</a>
                         </div>
                         <div class="division-image">
-                            <div class="division-img-container" style="background-image: url('Pictures/GRP\ Roofing.webp');">
+                            <div class="division-img-container" style="background-image: url('Pictures/Lee-Pictures/GRP-Roofing/GRP-72.jpg');">
                             </div>
                         </div>
                     </div>
@@ -188,7 +174,7 @@
                             <a href="pattern-making-systems.html" class="btn">Learn More</a>
                         </div>
                         <div class="division-image">
-                            <div class="division-img-container" style="background-image: url('Pictures/Patern\ Making\ System.webp');">
+                            <div class="division-img-container" style="background-image: url('Pictures/Lee-Pictures/Pillars/Pillars-6.jpg');">
                             </div>
                         </div>
                     </div>
@@ -357,57 +343,30 @@
                 });
             });
             
-            // Carousel functionality
-            const carousel = document.querySelector('.carousel');
-            const items = document.querySelectorAll('.carousel-item');
-            const prevBtn = document.querySelector('.carousel-control.prev');
-            const nextBtn = document.querySelector('.carousel-control.next');
-            const indicatorsContainer = document.querySelector('.carousel-indicators');
+            // Video play button functionality
+            const video = document.querySelector('.video-container video');
+            const playBtn = document.querySelector('.play-btn');
+            const videoOverlay = document.querySelector('.video-overlay');
             
-            let currentIndex = 0;
-            const totalItems = items.length;
-            
-            // Create indicators
-            for (let i = 0; i < totalItems; i++) {
-                const indicator = document.createElement('div');
-                indicator.classList.add('carousel-indicator');
-                if (i === 0) indicator.classList.add('active');
-                indicator.addEventListener('click', () => {
-                    goToSlide(i);
+            if (playBtn && video) {
+                playBtn.addEventListener('click', function() {
+                    video.play();
+                    videoOverlay.style.display = 'none';
+                    video.setAttribute('controls', 'true');
                 });
-                indicatorsContainer.appendChild(indicator);
-            }
-            
-            const indicators = document.querySelectorAll('.carousel-indicator');
-            
-            // Function to go to a specific slide
-            function goToSlide(index) {
-                currentIndex = index;
-                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
                 
-                // Update indicators
-                indicators.forEach((indicator, i) => {
-                    indicator.classList.toggle('active', i === currentIndex);
+                // Show overlay again when video ends
+                video.addEventListener('ended', function() {
+                    videoOverlay.style.display = 'flex';
+                    video.removeAttribute('controls');
+                });
+                
+                // Pause event to potentially show overlay (optional)
+                video.addEventListener('pause', function() {
+                    // You could show the overlay here if you want
+                    // videoOverlay.style.display = 'flex';
                 });
             }
-            
-            // Next slide
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % totalItems;
-                goToSlide(currentIndex);
-            });
-            
-            // Previous slide
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-                goToSlide(currentIndex);
-            });
-            
-            // Auto-play the carousel
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % totalItems;
-                goToSlide(currentIndex);
-            }, 5000);
         });
     </script>
 </body>
